@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "5c08689f-c3d7-439d-b6a2-3d25d99c271f",
+		"name": "session7",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25094498",
+		"_collection_link": "https://warped-meadow-290019.postman.co/workspace/workspace~50628559-e6c8-45fc-9353-6a4568568f7d/collection/25094498-5c08689f-c3d7-439d-b6a2-3d25d99c271f?action=share&source=collection_link&creator=25094498"
+	},
+	"item": [
+		{
+			"name": "Postman Assertion1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Check for response Code1\"]=responseCode.code==200;\r",
+							"tests[\"Check for response Code2\"]=pm.response.code==200;\r",
+							"tests[\"string match\"]=responseBody.has(\"Michael\");\r",
+							"var jsonRes=JSON.parse(responseBody);\r",
+							"tests[\"check for id of lindsay\"]=jsonRes.data[1].id==8;\r",
+							"tests[\"last_name of Michael is Lawson\"]=jsonRes.data[0].last_name==\"Lawson\";\r",
+							"tests[\"res code\"]=pm.response.to.have.status(200);\r",
+							"pm.response.to.have.status(200);\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Postman Assertion2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"The response has all properties\", () => {",
+							"    //parse the response json and test three properties",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.data[0].id).to.eql(7);",
+							"    pm.expect(pm.response.code).to.eql(200);",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');",
+							"    pm.expect(responseJson.data[0].first_name).to.be.a('string');",
+							"    pm.expect(responseJson).to.be.an('object');",
+							"     pm.expect(responseJson.data[0].id).to.be.a('number');",
+							"    pm.expect(responseJson.data).to.have.lengthOf(6);",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"     pm.expect(pm.response.headers.has('Age')).to.be.true;",
+							"   ",
+							"     ",
+							"",
+							" ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
