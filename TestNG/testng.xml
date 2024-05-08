@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	
+  <test thread-count="5" name="Test1">
+<parameter name="a" value="5"/>  
+<parameter name="b" value="3"/>  
+	  
+    <classes>
+		<class name="Session02.Class03"/>
+	
+      </classes>
+  </test> <!-- Test -->
+  
+  <test thread-count="5" name="Test2">
+	  
+    <classes>
+	
+		<class name="Session01.Class01"/>
+	 <class name="Session01.Class02"/>
+      </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
